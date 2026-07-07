@@ -1,0 +1,6 @@
+id,kode_produk,nama_produk,brand,ukuran,panjang_cm,lebar_cm,tinggi_cm,kekuatan_statis_kg,kekuatan_dinamis_kg,kekuatan_racking_kg,akses_forklift,akses_hand_pallet,akses_stacker,warna,berat_kg,material
+1,FR1210-16SW,Palet Plastik SUBLIMS FR1210-16SW Biru,SUBLIMS,120 x 100 x 16 Cm,120,100,16,6000,2000,1000,4 arah,2 arah,2 arah,Biru,18,PPBC
+2,FR1210-16SW,Palet Plastik SUBLIMS FR1210-16SW Hijau,SUBLIMS,120 x 100 x 16 Cm,120,100,16,6000,2000,1000,4 arah,2 arah,2 arah,Hijau,18,PPBC
+3,FR1210-16SW,Palet Plastik SUBLIMS FR1210-16SW Kuning,SUBLIMS,120 x 100 x 16 Cm,120,100,16,6000,2000,1000,4 arah,2 arah,2 arah,Kuning,18,PPBC
+4,FR1210-16SW,Palet Plastik SUBLIMS FR1210-16SW Merah,SUBLIMS,120 x 100 x 16 Cm,120,100,16,6000,2000,1000,4 arah,2 arah,2 arah,Merah,18,PPBC
+5,FR1210-16SW,Palet Plastik SUBLIMS FR1210-16SW Abu-Abu,SUBLIMS,120 x 100 x 16 Cm,120,100,16,6000,2000,1000,4 arah,2 arah,2 arah,Abu-Abu,18,PPBC

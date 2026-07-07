@@ -1,0 +1,27 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "catalog": "Catalog",
+    "contact": "Contact"
+  },
+  "home": {
+    "title": "Welcome to Sublims",
+    "subtitle": "We are here to provide the best solution for you"
+  },
+  "about": {
+    "title": "About Us",
+    "description": "Company content will be filled here."
+  },
+  "catalog": {
+    "title": "Product Catalog",
+    "description": "Browse our collection of quality products. Add items to your cart and request a quote."
+  },
+  "contact": {
+    "title": "Contact Us",
+    "description": "Contact form and information will be filled here."
+  },
+  "footer": {
+    "copyright": "All Rights Reserved"
+  }
+}
