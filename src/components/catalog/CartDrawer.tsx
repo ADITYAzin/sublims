@@ -4,7 +4,6 @@ import { X, Trash2, ShoppingBag } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 import QuantityInput from "@/components/ui/QuantityInput";
 import Button from "@/components/ui/Button";
-import { formatPrice } from "@/lib/products";
 import { useEffect, useRef } from "react";
 
 type CartDrawerProps = {
@@ -18,8 +17,7 @@ export default function CartDrawer({
   onClose,
   onRequestQuote,
 }: CartDrawerProps) {
-  const { items, updateQuantity, removeItem, totalPrice, totalItems } =
-    useCart();
+  const { items, updateQuantity, removeItem, totalItems } = useCart();
   const overlayRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -60,7 +58,7 @@ export default function CartDrawer({
           <div className="flex items-center gap-2">
             <ShoppingBag className="h-5 w-5 text-brand-200" />
             <h2 className="text-lg font-semibold text-neutral-800">
-              Keranjang ({totalItems})
+              Daftar Permintaan ({totalItems})
             </h2>
           </div>
           <button
@@ -76,7 +74,10 @@ export default function CartDrawer({
           {items.length === 0 ? (
             <div className="mt-20 text-center text-neutral-400">
               <ShoppingBag className="mx-auto h-12 w-12 opacity-30" />
-              <p className="mt-3 text-sm">Keranjang masih kosong</p>
+              <p className="mt-3 text-sm">Daftar permintaan masih kosong</p>
+              <p className="mt-1 text-xs text-neutral-300">
+                Klik &quot;Minta Penawaran&quot; pada produk yang Anda minati
+              </p>
             </div>
           ) : (
             <ul className="space-y-4">
@@ -88,9 +89,14 @@ export default function CartDrawer({
                   <div className="h-16 w-16 flex-shrink-0 rounded-md bg-neutral-50" />
                   <div className="flex flex-1 flex-col justify-between">
                     <div className="flex items-start justify-between">
-                      <p className="text-sm font-medium text-neutral-800">
-                        {item.product.name_id}
-                      </p>
+                      <div>
+                        <p className="text-xs font-medium text-brand-600">
+                          {item.product.kode_produk}
+                        </p>
+                        <p className="text-sm font-medium text-neutral-800">
+                          {item.product.nama_produk}
+                        </p>
+                      </div>
                       <button
                         onClick={() => removeItem(item.product.id)}
                         className="ml-2 rounded p-0.5 text-neutral-300 transition-colors hover:text-red-500"
@@ -99,13 +105,12 @@ export default function CartDrawer({
                         <Trash2 className="h-4 w-4" />
                       </button>
                     </div>
-                    <p className="text-sm font-semibold text-brand-600">
-                      {formatPrice(item.product.price * item.quantity)}
-                    </p>
-                    <QuantityInput
-                      value={item.quantity}
-                      onChange={(qty) => updateQuantity(item.product.id, qty)}
-                    />
+                    <div className="mt-2">
+                      <QuantityInput
+                        value={item.quantity}
+                        onChange={(qty) => updateQuantity(item.product.id, qty)}
+                      />
+                    </div>
                   </div>
                 </li>
               ))}
@@ -115,14 +120,9 @@ export default function CartDrawer({
 
         {items.length > 0 && (
           <div className="border-t border-neutral-100 px-6 py-4">
-            <div className="mb-3 flex items-center justify-between">
-              <span className="text-sm font-medium text-neutral-600">
-                Total
-              </span>
-              <span className="text-xl font-bold text-brand-600">
-                {formatPrice(totalPrice)}
-              </span>
-            </div>
+            <p className="mb-3 text-xs text-neutral-400">
+              {totalItems} produk akan dimasukkan dalam penawaran
+            </p>
             <Button onClick={onRequestQuote} className="w-full" size="lg">
               Minta Penawaran
             </Button>

@@ -1,27 +1,91 @@
 {
-  "nav": {
-    "home": "Home",
-    "about": "About Us",
-    "catalog": "Catalog",
-    "contact": "Contact"
-  },
-  "home": {
-    "title": "Welcome to Sublims",
-    "subtitle": "We are here to provide the best solution for you"
-  },
-  "about": {
-    "title": "About Us",
-    "description": "Company content will be filled here."
-  },
-  "catalog": {
-    "title": "Product Catalog",
-    "description": "Browse our collection of quality products. Add items to your cart and request a quote."
-  },
-  "contact": {
-    "title": "Contact Us",
-    "description": "Contact form and information will be filled here."
-  },
-  "footer": {
-    "copyright": "All Rights Reserved"
-  }
+    "nav":  {
+                "home":  "Home",
+                "about":  "About Us",
+                "catalog":  "Catalog",
+                "contact":  "Contact"
+            },
+    "home":  {
+                 "hero":  {
+                              "headline":  "Industry-Standard Plastic Pallets \u0026 Crates for Logistics Efficiency.",
+                              "subheadline":  "Ready-to-ship stock availability for warehousing, manufacturing, and large-scale supply chain operations.",
+                              "primary_cta":  "Explore Catalog",
+                              "secondary_cta":  "Check Stock Availability"
+                          },
+                 "categories":  {
+                                    "heading":  "Ready-to-Ship Product Categories",
+                                    "pallet_title":  "Plastic Pallets",
+                                    "pallet_desc":  "High-quality plastic pallets for warehousing and logistics. Available in various sizes and load capacities.",
+                                    "crate_title":  "Plastic Crates / Containers",
+                                    "crate_desc":  "Versatile plastic crates for storage, sorting, and distribution of goods across various industrial sectors.",
+                                    "view_all":  "View All"
+                                },
+                 "values":  {
+                                "heading":  "Data-Driven Distributor Advantages",
+                                "subheading":  "Why SUBLIMS",
+                                "stock_title":  "Ready-to-Ship Stock",
+                                "stock_desc":  "Guaranteed product availability for large-scale orders with professionally managed inventory systems.",
+                                "material_title":  "Premium PPBC/HDPE Material",
+                                "material_desc":  "High durability, impact resistant, and environmentally friendly. The material of choice for your logistics operational safety.",
+                                "spec_title":  "Industry Standard Specifications",
+                                "spec_desc":  "Accurate static, dynamic, and racking load capacities measured according to warehousing and logistics industry standards."
+                            },
+                 "cta":  {
+                             "text":  "Need Special Specifications or Large-Scale Purchases? Our expert team is ready to help you.",
+                             "button":  "Contact Sales via WhatsApp"
+                         }
+             },
+    "about":  {
+                  "title":  "About Us",
+                  "description":  "PT. Subur Berlimpah Sejahtera was established in 2025 and is based in Sidoarjo, East Java. We are fully committed to service excellence and high-quality plastic packaging products for industrial customers.",
+                  "eyebrow":  "Company Profile",
+                  "lead":  "Industrial plastic packaging, pallet, and logistics crate distributor for warehousing, manufacturing, FMCG, and large-scale supply chain needs.",
+                  "founded":  "Established 2025",
+                  "location":  "Sidoarjo, East Java",
+                  "focus":  "B2B plastic packaging",
+                  "vision_title":  "Vision",
+                  "vision":  "To become a leading plastic packaging distributor in Indonesia that is innovative, trusted, and delivers the best solutions for every distribution and logistics need.",
+                  "mission_title":  "Mission",
+                  "mission_1":  "Provide high-quality plastic pallets and crates that meet industrial standards.",
+                  "mission_2":  "Deliver excellent and responsive service for customer satisfaction.",
+                  "mission_3":  "Build long-term partnerships based on trust and integrity.",
+                  "mission_4":  "Continue innovating efficient and sustainable packaging solutions.",
+                  "gallery_title":  "Operations \u0026 Warehouse Gallery",
+                  "gallery_desc":  "Storage area and stock readiness documentation in Sidoarjo to support large-volume purchases and self-pickup needs."
+              },
+    "catalog":  {
+                    "title":  "Product Catalog",
+                    "description":  "Explore the technical specifications of our high-quality plastic pallets. Select products and submit a quote request.",
+                    "search_placeholder":  "Search products by name, code, or brand...",
+                    "products_count":  "{count} of {total} products",
+                    "not_found":  "Product not found",
+                    "not_found_hint":  "Try using different keywords",
+                    "clear_filter":  "Clear filter"
+                },
+    "contact":  {
+                    "title":  "Contact Us",
+                    "description":  "Submit an official quotation request for plastic pallets, industrial baskets, and logistics crates.",
+                    "eyebrow":  "Let's Talk",
+                    "address_label":  "Office Location",
+                    "address":  "Sidoarjo, East Java, Indonesia",
+                    "email_label":  "Procurement Email",
+                    "email":  "office@sublims.id",
+                    "phone_label":  "Operations Hotline",
+                    "phone":  "+62 812-3456-7890",
+                    "hours_label":  "Operating Hours",
+                    "hours":  "Monday - Friday, 08.00 - 17.00 WIB",
+                    "map_title":  "Sidoarjo warehouse service area",
+                    "form_title":  "Quotation Request Form",
+                    "name":  "Your Name",
+                    "company":  "Company Name",
+                    "email_field":  "Office Email",
+                    "whatsapp":  "Phone Number",
+                    "product_type":  "Product Name",
+                    "quantity":  "Required Quantity (Pcs)",
+                    "notes":  "Additional Notes",
+                    "submit":  "Send Price Request"
+                },
+    "footer":  {
+                   "copyright":  "All Rights Reserved"
+               }
 }

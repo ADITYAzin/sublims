@@ -80,17 +80,25 @@
 - Hero heading: **700–800**
 - Jangan gunakan weight di bawah 400 untuk teks konten
 
-### 1.3 Spacing & Grid
+Berikut adalah revisi **Design System** yang telah disesuaikan agar sejalan dengan prinsip **Nomor 4 (Anti-Flat, Bento Grid, Glassmorphism, & Layered Depth)** tanpa kehilangan karakter korporat B2B yang profesional.
 
-- **Base unit:** 4px (Tailwind default)
-- **Container max-width:** `max-w-7xl` (1280px)
-- **Gutter:** px-4 (mobile), px-6 (tablet), px-8 (desktop)
-- **Section padding:** py-16 (mobile), py-20–24 (desktop)
+Bagian yang bertentangan (seperti pembatasan *shadow* yang terlalu flat, serta *border-radius* yang terlalu kaku) telah ditingkatkan ke standar visual yang lebih modern dan berdimensi.
+
+---
+
+# DESIGN SYSTEM REVISED (ANTI-FLAT & CORPORATE)
+
+## 1. Spacing & Grid
+
+* **Base unit:** 4px (Tailwind default)
+* **Container max-width:** `max-w-7xl` (1280px)
+* **Gutter:** `px-4` (mobile), `px-6` (tablet), `px-8` (desktop)
+* **Section padding:** `py-16` (mobile), `py-20`–`py-24` (desktop)
 
 **Breakpoints:**
 
 | Breakpoint | Min width | Container |
-|------------|-----------|-----------|
+| --- | --- | --- |
 | `sm` | 640px | 640px |
 | `md` | 768px | 768px |
 | `lg` | 1024px | 1024px |
@@ -99,57 +107,33 @@
 
 ---
 
-## 2. UI/UX Principles — Clean & Professional
+## 2. UI/UX Principles — Modern, Deep & Professional
 
 ### 2.1 Core Philosophy
 
-> **"Clarity over creativity."** Setiap elemen visual harus memiliki tujuan. Desain yang baik adalah desain yang tidak perlu dijelaskan.
+> **"Depth with Purpose."** Kejelasan informasi tetap utama, namun visual dikemas dengan estetika modern melalui permainan lapisan (*layering*), efek transparan, dan struktur grid yang kokoh untuk membangun impresi korporat premium.
 
-### 2.2 Clean Style
-
-| Prinsip | Penerapan |
-|---------|-----------|
-| **Whitespace dominance** | Minimal 40% area kosong per viewport; jangan penuhi layar dengan konten |
-| **Warna terbatas** | Maksimal 2–3 warna per halaman: brand (`#a2c4c9`), neutral, dan 1 accent (jika perlu) |
-| **Typography-driven layout** | Hierarki font sebagai struktur utama — bukan border, shadow, atau background pattern |
-| **Minimal decoration** | Tidak ada gradien tidak perlu, pattern berulang, atau elemen dekoratif yang tidak mendukung konten |
-| **Grid alignment ketat** | Setiap elemen terikat pada grid 8px; tidak boleh ada elemen "floating" tanpa baseline |
-| **Border radius terkendali** | Hanya `rounded-sm` (4px) untuk elemen kecil, `rounded-lg` (8px) untuk card/section; jangan berlebihan |
-
-### 2.3 Professional Look
+### 2.2 Anti-Flat Style (Revisi 4.0)
 
 | Prinsip | Penerapan |
-|---------|-----------|
-| **Refined spacing** | Padding minimum 16px pada card/section; gutter konsisten antar semua halaman |
-| **Subtle shadows** | Gunakan shadow paling ringan (`shadow-sm`) atau tanpa shadow sama sekali; hindari shadow tebal |
-| **Polished typography** | Line-height 1.5–1.75 untuk body, 1.1–1.25 untuk heading; letter-spacing normal |
-| **High-quality imagery** | Foto profesional dengan palette warna terkontrol; hindari stock photo generik |
-| **Consistent micro-interactions** | Semua elemen interaktif memiliki `transition-all duration-200 ease-out` |
-| **Business-appropriate tone** | Animasi hanya fade/slide halus; tidak ada efek "lucu" atau playful |
-| **Accessible contrast** | Rasio kontras minimal 4.5:1 untuk body text terhadap background |
+| --- | --- |
+| **Whitespace dominance** | Minimal 40% area kosong per viewport; memberikan ruang bernapas pada elemen logistik yang padat. |
+| **Warna & Transparansi** | Maksimal 2–3 warna solid utama. Memanfaatkan efek *opacity* dan *backdrop blur* untuk elemen *overlay* premium. |
+| **Layered Structure Layout** | Hierarki informasi dipertegas menggunakan elevasi komponen (*z-index* dan *shadow layering*) untuk memisahkan konten prioritas. |
+| **Sophisticated Decoration** | Mengizinkan penggunaan efek *frosted glass* dan gradasi halus khusus pada komponen interaktif/header untuk menghindari kesan flat. |
+| **Bento Grid Alignment** | Tata letak menggunakan sistem *grid* asimetris modern yang presisi, memberikan variasi visual yang dinamis namun tetap rapi. |
+| **Organic Border Radius** | Menggunakan `rounded-xl` (12px) hingga `rounded-2xl` (16px) untuk area *card* dan kompartemen Bento Grid agar terasa modern dan tidak kaku. |
 
-### 2.4 UX Tenets
+### 2.3 Professional Look & Depth
 
-1. **Consistency** — Pola komponen, spacing, dan interaksi seragam di seluruh halaman
-2. **Accessibility** — Kontras memadai, focus states terlihat, semantic HTML, alt text pada gambar
-3. **Visual hierarchy** — Tipografi & spacing membedakan prioritas informasi secara jelas
-4. **Mobile-first** — Semua komponen dirancang dari mobile ke desktop (progressive enhancement)
-5. **Performance-aware** — Animasi menggunakan GPU (transform/opacity), lazy loading gambar
-6. **Error prevention** — Form validation real-time, konfirmasi sebelum aksi destruktif
-7. **Feedback** — Setiap interaksi memiliki feedback visual (loading, success, error state)
-
-### 2.5 Anti-Patterns Checklist (Larangan)
-
-- ❌ Tidak ada centering vertikal paksa pada hero (kecuali konten sangat sedikit)
-- ❌ Tidak ada teks yang menumpuk di atas background kompleks (gunakan overlay)
-- ❌ Tidak ada pop-up/gangguan yang muncul tanpa interaksi pengguna
-- ❌ Tidak ada font weight < 400 untuk body text
-- ❌ Tidak ada warna teks abu-abu muda (di bawah `#666`) untuk body
-- ❌ Tidak ada elemen yang "menempel" tanpa padding (jarak antar elemen minimal 8px)
-- ❌ Tidak ada animasi yang tidak perlu (parallax berlebihan, particle effects)
-- ❌ Tidak ada underline pada teks yang bukan link
-- ❌ Tidak ada border merah tanpa pesan error yang jelas
-- ❌ Tidak ada horizontal scroll pada viewport 360px–1920px
+| Prinsip | Penerapan |
+| --- | --- |
+| **Refined spacing** | Padding minimum 24px pada *card* skala besar; menciptakan impresi eksklusif dan bersih. |
+| **Layered Depth Shadows** | Menggunakan bayangan bertingkat (*multi-layered shadow*) yang halus dan menyebar luas. Menghindari *shadow* hitam pekat atau flat kasar. |
+| **Polished typography** | Line-height 1.5–1.75 untuk body text, 1.1–1.25 untuk heading; Plus Jakarta Sans sebagai fondasi utama. |
+| **High-quality imagery** | Foto produk dengan sudut perspektif/diagonal beresolusi tinggi dengan pencahayaan natural gudang fisik. |
+| **Fluid Micro-interactions** | Respons transisi interaktif menggunakan durasi `300ms` dengan *easing* melandai untuk kesan gerakan yang berkelas. |
+| **Business-appropriate tone** | Animasi terbatas pada tipe *fade-up*, *staggered reveal*, dan *subtle scale* (tidak ada efek *playful* melompat). |
 
 ---
 
@@ -182,6 +166,16 @@ const config: Config = {
       fontFamily: {
         sans: ["Plus Jakarta Sans", "sans-serif"],
       },
+      borderRadius: {
+        'bento-sm': '12px',
+        'bento-lg': '16px',
+      },
+      boxShadow: {
+        // Multi-layered shadow untuk efek anti-flat yang korporat & halus
+        'layered-sm': '0 2px 4px rgba(36, 73, 80, 0.02), 0 4px 12px rgba(36, 73, 80, 0.04)',
+        'layered-md': '0 4px 8px rgba(36, 73, 80, 0.04), 0 12px 24px rgba(36, 73, 80, 0.06)',
+        'layered-lg': '0 20px 40px rgba(36, 73, 80, 0.08), 0 1px 3px rgba(0, 0, 0, 0.02)',
+      },
       maxWidth: {
         container: "1280px",
       },
@@ -191,6 +185,7 @@ const config: Config = {
 };
 
 export default config;
+
 ```
 
 ### 3.2 CSS Custom Properties (Global CSS)
@@ -208,9 +203,13 @@ export default config;
     --color-brand: #a2c4c9;
     --color-text-body: #475569;
     --color-text-heading: #1e293b;
-    --radius-sm: 4px;
-    --radius-lg: 8px;
-    --transition-base: 200ms ease-out;
+    
+    /* Update Radius sesuai Prinsip Baru */
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    
+    --transition-smooth: 300ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   html {
@@ -218,14 +217,31 @@ export default config;
   }
 
   body {
-    @apply text-neutral-600 antialiased;
+    @apply text-neutral-600 antialiased bg-slate-50/50;
     font-family: 'Plus Jakarta Sans', sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply text-neutral-800 font-bold leading-tight;
+    @apply text-neutral-800 font-bold leading-tight tracking-tight;
   }
 }
+
+/* Utilitas khusus untuk Glassmorphism Premium */
+@layer utilities {
+  .glass-header {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(224, 237, 239, 0.6);
+  }
+  
+  .glass-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+}
+
 ```
 
 ---
@@ -234,118 +250,54 @@ export default config;
 
 ### 4.1 Button System
 
-| Variant | Background | Text | Border | Hover |
-|---------|-----------|------|--------|-------|
-| **Primary** | `brand-200` | `white` | none | `brand-300` |
-| **Outline** | transparent | `brand-200` | `brand-200` 1px | bg `brand-50` |
-| **Ghost** | transparent | `neutral-600` | none | bg `neutral-100` |
-
-**Size:**
-
-| Size | Padding X | Padding Y | Font Size | Icon Gap |
-|------|-----------|-----------|-----------|----------|
-| `sm` | px-4 | py-1.5 | text-sm | gap-1.5 |
-| `md` | px-6 | py-2.5 | text-base | gap-2 |
-| `lg` | px-8 | py-3.5 | text-lg | gap-2.5 |
+| Variant | Background | Text | Border | Hover / Interaction State |
+| --- | --- | --- | --- | --- |
+| **Primary** | `brand-500` | `white` | none | bg `brand-600`, scale-98, shadow-layered-sm |
+| **Outline** | transparent | `brand-600` | `brand-200` 1.5px | bg `brand-50`, border `brand-300` |
+| **Ghost** | transparent | `neutral-600` | none | bg `neutral-100/80`, `backdrop-blur` |
 
 **Rules:**
-- Border radius: `rounded-lg` (8px)
-- Transition: `transition-all duration-200 ease-out`
-- Focus: `outline-2 outline-offset-2 outline-brand-200`
-- Disabled: `opacity-50 cursor-not-allowed`
-- Ikon: hanya di kiri (sebelum teks) atau kanan (setelah teks), pilih salah satu
 
-### 4.2 Card Component
+* Border radius: `rounded-xl` (12px) untuk menyelaraskan dengan komponen Bento Grid.
+* Transition: `transition-all duration-300 cubic-bezier(0.4, 0, 0.2, 1)`.
+
+### 4.2 Card Component (Bento & Anti-Flat Pattern)
+
+Mengimplementasikan *layered shadow* dan *smooth lift-up animation* agar tidak flat saat berinteraksi.
 
 ```tsx
-// Default card pattern
-<div className="rounded-lg bg-white p-6 shadow-sm border border-neutral-100 
-                transition-all duration-200 ease-out 
-                hover:shadow-md hover:border-brand-100">
-  {/* konten */}
+// Anti-flat elevated card pattern
+<div className="rounded-bento-lg bg-white p-6 shadow-layered-sm border border-neutral-100/80 
+                transition-all duration-300 ease-[0.4,0,0.2,1] 
+                hover:-translate-y-1.5 hover:shadow-layered-md hover:border-brand-200/50">
+  {/* Konten Utama */}
 </div>
+
 ```
 
-### 4.3 Form Elements
+### 4.3 Form Penawaran (RFQ) & Input Elements
 
-| Element | Border | Focus | Error State |
-|---------|--------|-------|-------------|
-| Input | `neutral-200` | `brand-200` ring-2 | `error` border + ring |
-| Textarea | `neutral-200` | `brand-200` ring-2 | `error` border + ring |
-| Select | `neutral-200` | `brand-200` ring-2 | `error` border + ring |
-| Checkbox/Radio | `neutral-300` checked `brand-200` | `brand-200` ring-2 | `error` border |
+| Element | Background | Border | Focus State |
+| --- | --- | --- | --- |
+| Input / Textarea | `white` | `neutral-200` | `border-brand-400` + `ring-4` `ring-brand-100/50` |
+| Select Dropdown | `white` | `neutral-200` | `border-brand-400` + `ring-4` `ring-brand-100/50` |
 
-**Padding:** `px-4 py-3`
-**Border radius:** `rounded-lg`
-**Label:** `text-sm font-medium text-neutral-700 mb-1.5`
-**Helper text:** `text-xs text-neutral-400 mt-1`
-**Error message:** `text-xs text-error mt-1`
+**Rules:**
 
-### 4.4 Navigation
+* Border radius: `rounded-xl` (12px).
+* Sisi visual form menggunakan *subtle inner shadow* tipis agar terlihat rapi dan presisi di dalam layout *split-screen*.
 
-- **Sticky navbar** — bg putih/transparan dengan blur backdrop
-- **Desktop** — menu horizontal, logo di kiri, CTA button di kanan
-- **Mobile** — hamburger menu, slide-in drawer dari kanan, full height
-- **Active state:** underline atau dot indikator dengan `brand-200`
-- **Smooth scroll** — untuk anchor link satu halaman
-- **Z-index:** `z-50`
+### 4.4 Navigation (Glassmorphism Spec)
 
-### 4.5 Section Patterns
-
-| Section | Background | Padding Y |
-|---------|-----------|-----------|
-| Hero | `brand-50` atau putih | py-20 md:py-28 |
-| Features/Grid | putih | py-16 md:py-20 |
-| About/Content | `neutral-50` | py-16 md:py-20 |
-| Testimonial | `brand-50` | py-16 md:py-20 |
-| CTA | `brand-200` | py-12 md:py-16 |
-| Contact | putih | py-16 md:py-20 |
-| Footer | `brand-700` atau `neutral-900` | py-12 |
-
-### 4.6 Footer
-
-- Multi-column layout (4 kolom desktop, 2 kolom tablet, 1 kolom mobile)
-- Brand description + social icons di kolom pertama
-- Link groups (Perusahaan, Layanan, Dukungan, Legal)
-- Copyright bar di bagian bawah dengan border-top tipis
+* **Header Component:** Menggunakan *class* `.glass-header` (`backdrop-filter` aktif). Efek tembus pandang bertekstur buram ini mencegah elemen menu terlihat datar sekaligus menjaga teks navigasi tetap terbaca jelas.
+* **Z-index:** `z-50` mutlak untuk menjaga posisi layer selalu berada di lapisan teratas konversi.
 
 ---
 
-## 5. Animation & Interaction
+## 5. Animation & Interaction (GPU Accelerated)
 
-### 5.1 Principles
-
-| Aspek | Value |
-|-------|-------|
-| Duration default | 200ms–300ms |
-| Easing | `cubic-bezier(0.4, 0, 0.2, 1)` — ease-out |
-| Easing (exit) | `cubic-bezier(0.4, 0, 1, 1)` — ease-in |
-| Animasi prefered | `transform` & `opacity` (GPU accelerated) |
-| Durasi scroll reveal | 600ms, delay per item 100ms |
-
-### 5.2 Micro-interactions
-
-- **Hover link:** `text-brand-200` atau subtle underline
-- **Hover card:** translateY(-2px) + shadow increase
-- **Button click:** scale(0.97) quick
-- **Form focus:** ring muncul smooth
-- **Page transition:** fade in 300ms
-- **Scroll reveal:** fade-up dengan stagger children
-
-### 5.3 Implementation
-
-```tsx
-// Framer Motion pattern
-import { motion } from 'framer-motion';
-
-const fadeUp = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6, ease: [0.4, 0, 0.2, 1] },
-};
-```
-
----
+* **Hover Link & Menu:** Transisi warna mengalir halus ke `text-brand-500` disertai penambahan garis bawah mikro yang melebar dari tengah (*expanding underline*).
+* **Modal Box Pop-Up:** Menggunakan kombinasi efek *scale up* ringan (dari `95%` ke `100%`) dan *fade-in* simultan selama `300ms` untuk memberikan ilusi kedalaman ruang spasial saat dibuka.
 
 ## 6. SEO & Meta
 

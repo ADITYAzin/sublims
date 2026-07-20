@@ -31,6 +31,8 @@
   --color-info: #3b82f6;
 
   --font-sans: "Plus Jakarta Sans", sans-serif;
+
+  --max-width-container: 1280px;
 }
 
 @layer base {

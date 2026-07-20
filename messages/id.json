@@ -1,27 +1,92 @@
 {
-  "nav": {
-    "home": "Beranda",
-    "about": "Tentang Kami",
-    "catalog": "Katalog",
-    "contact": "Kontak"
-  },
-  "home": {
-    "title": "Selamat Datang di Sublims",
-    "subtitle": "Kami hadir untuk memberikan solusi terbaik bagi Anda"
-  },
-  "about": {
-    "title": "Tentang Kami",
-    "description": "Konten tentang perusahaan akan diisi di sini."
-  },
-  "catalog": {
-    "title": "Katalog Produk",
-    "description": "Jelajahi koleksi produk berkualitas kami. Tambahkan item ke keranjang dan minta penawaran."
-  },
-  "contact": {
-    "title": "Hubungi Kami",
-    "description": "Form kontak dan informasi akan diisi di sini."
-  },
-  "footer": {
-    "copyright": "Hak Cipta Dilindungi"
-  }
+    "nav":  {
+                "home":  "Beranda",
+                "about":  "Tentang Kami",
+                "catalog":  "Katalog",
+                "contact":  "Kontak"
+            },
+    "home":  {
+                 "hero":  {
+                              "headline":  "Selamat Datang di SUBLIMS",
+                              "subheadline":  "Kami menyediakan Pallet \u0026 Keranjang Plastik Standar Industri untuk Kebutuhan Logistik.",
+                              "primary_cta":  "Jelajahi Katalog",
+                              "secondary_cta":  "Konsultasi Ketersediaan Stok"
+                          },
+                 "categories":  {
+                                    "heading":  "Kategori Produk Siap Salur",
+                                    "pallet_title":  "Pallet Plastik",
+                                    "pallet_desc":  "Pallet plastik berkualitas tinggi untuk kebutuhan pergudangan dan logistik Anda. Tersedia dalam berbagai ukuran dan kapasitas beban.",
+                                    "crate_title":  "Keranjang / Crate Plastik",
+                                    "crate_desc":  "Keranjang plastik serbaguna untuk penyimpanan, sortasi, dan distribusi barang di berbagai sektor industri.",
+                                    "view_all":  "Lihat Semua"
+                                },
+                 "values":  {
+                                "heading":  "3 Pilar Keunggulan Kami",
+                                "subheading":  "Mengapa pilih SUBLIMS",
+                                "stock_title":  "Stok Tersedia",
+                                "stock_desc":  "Menjamin ketersediaan barang untuk pesanan skala besar dengan sistem inventory yang terkelola secara profesional.",
+                                "material_title":  "Material Premium PPBC/HDPE",
+                                "material_desc":  "Durabilitas tinggi, tahan benturan, dan ramah lingkungan. Material pilihan untuk keamanan operasional logistik Anda.",
+                                "spec_title":  "Spesifikasi Standar Industri",
+                                "spec_desc":  "Akurasi kapasitas beban statis, dinamis, dan racking yang terukur sesuai standar industri pergudangan dan logistik."
+                            },
+                 "cta":  {
+                             "text":  "Ada pertanyaan? Kami siap membantu.",
+                             "button":  "Hubungi Kami"
+                         }
+             },
+    "about":  {
+                  "title":  "Tentang Kami",
+                  "description":  "Kami berkomitmen terhadap keunggulan pelayanan, penyediaan produk yang berkualitas serta berorientasi pada kepuasan pelanggan. Kami siap menjadi mitra terpercaya Anda dalam memenuhi kebutuhan distribusi dan logistik. ",
+                  "eyebrow":  "",
+                  "lead":  "Subur Berlimpah Sejahtera berdiri pada tahun 2025 dan berlokasi di Sidoarjo - Jawa Timur. Kami menyediakan berbagai macam dan ukuran pallet plastik. Baik dari bahan plastik murni maupun daur ulang.",
+                  "founded":  "Berdiri 2025",
+                  "location":  "Sidoarjo, Jawa Timur",
+                  "focus":  "Kemasan plastik B2B",
+                  "vision_title":  "Visi",
+                  "vision":  "Menjadi distributor kemasan plastik terdepan di Indonesia yang inovatif, terpercaya, dan memberikan solusi terbaik bagi setiap kebutuhan distribusi dan logistik.",
+                  "mission_title":  "Misi",
+                  "mission_1":  "Menyediakan produk pallet dan keranjang plastik berkualitas tinggi yang memenuhi standar industri.",
+                  "mission_2":  "Memberikan pelayanan yang unggul dan responsif demi kepuasan pelanggan.",
+                  "mission_3":  "Membangun kemitraan jangka panjang berbasis kepercayaan dan integritas.",
+                  "mission_4":  "Terus berinovasi dalam memberikan solusi kemasan yang efisien dan berkelanjutan.",
+                  "gallery_title":  "Galeri Operasional \u0026 Gudang",
+                  "gallery_desc":  "Dokumentasi area penyimpanan dan kesiapan stok di Sidoarjo untuk mendukung pembelian volume besar dan kebutuhan self-pickup."
+              },
+    "catalog":  {
+                    "title":  "Katalog Produk",
+                    "description":  "",
+                    "search_placeholder":  "Cari nama atau kode produk",
+                    "products_count":  "{count} dari {total} produk",
+                    "not_found":  "Produk tidak ditemukan",
+                    "not_found_hint":  "Coba gunakan kata kunci lain",
+                    "clear_filter":  "Hapus filter"
+                },
+    "contact":  {
+                    "title":  "Hubungi Kami",
+                    "description":  "Kirim permintaan penawaran resmi untuk kebutuhan pallet plastik dan keranjang industri.",
+                    "eyebrow":  "Hubungi Kami",
+                    
+                    "address_label":  "Lokasi Kantor",
+                    "address":  "Sidoarjo, Jawa Timur, Indonesia",
+                    "email_label":  "Email Kantor",
+                    "email":  "office@sublims.id",
+                    "phone_label":  "Hotline Operasional",
+                    "phone":  "+62 851-1366-8629",
+                    "hours_label":  "Jam Operasional",
+                    "hours":  "Senin - Jumat, 08.00 - 17.00 WIB",
+                    "map_title":  "Area layanan gudang Sidoarjo",
+                    "form_title":  "Formulir Permintaan Penawaran",
+                    "name":  "Nama Anda",
+                    "company":  "Nama Perusahaan",
+                    "email_field":  "Email Kantor",
+                    "whatsapp":  "Nomor Telepon",
+                    "product_type":  "Nama Produk",
+                    "quantity":  "Jumlah Kebutuhan (Pcs)",
+                    "notes":  "Catatan Tambahan",
+                    "submit":  "Kirim Permintaan Harga"
+                },
+    "footer":  {
+                   "copyright":  "Hak Cipta Dilindungi"
+               }
 }

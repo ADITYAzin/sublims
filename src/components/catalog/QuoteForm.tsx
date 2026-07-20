@@ -1,11 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { X, Send, Mail, MessageCircle } from "lucide-react";
+import { useRouter, useParams } from "next/navigation";
+import { X, Send, Mail, MessageCircle, HelpCircle, FileText } from "lucide-react";
 import Button from "@/components/ui/Button";
 import Input from "@/components/ui/Input";
 import { useCart } from "@/context/CartContext";
-import { formatPrice } from "@/lib/products";
 
 type QuoteFormProps = {
   open: boolean;
@@ -13,110 +13,130 @@ type QuoteFormProps = {
 };
 
 type DeliveryMethod = "whatsapp" | "email";
+type InquiryType = "penawaran" | "pertanyaan";
 
-const WA_NUMBER = "6281234567890";
-const EMAIL_ADDRESS = "sales@sublims.com";
-
+const WA_NUMBER = "6285113668629";
 function buildWhatsAppUrl(
   number: string,
   name: string,
+  company: string,
   phone: string,
+  email: string,
+  inquiryType: InquiryType,
   notes: string,
-  items: { name: string; qty: number; price: number }[],
-  total: number,
+  items: { name: string; code: string; qty: number }[],
 ): string {
+  const header = inquiryType === "penawaran"
+    ? "*PENAWARAN HARGA - SUBLIMS*"
+    : "*PERTANYAAN PRODUK - SUBLIMS*";
+
   const lines = [
-    "*PERTANYAAN PRODUK - Sublims*",
+    header,
     "",
     `*Dari:* ${name}`,
+    `*Perusahaan:* ${company}`,
     `*No. HP:* ${phone}`,
-    "",
-    "*--- Detail Produk ---*",
   ];
+
+  if (email.trim()) {
+    lines.push(`*Email:* ${email}`);
+  }
+
+  lines.push("", "*Detail Produk:*");
 
   items.forEach((item, i) => {
     lines.push(
-      `${i + 1}. ${item.name} x${item.qty} = ${formatPrice(item.price * item.qty)}`,
+      `${i + 1}. ${item.name} (${item.code}) x${item.qty}`,
     );
   });
 
-  lines.push("");
-  lines.push(`*Total:* ${formatPrice(total)}`);
-
   if (notes.trim()) {
     lines.push("");
-    lines.push(`*Catatan:* ${notes.trim()}`);
+    if (inquiryType === "penawaran") {
+      lines.push(`*Catatan:* ${notes.trim()}`);
+    } else {
+      lines.push(`*Pertanyaan:* ${notes.trim()}`);
+    }
   }
 
   const text = encodeURIComponent(lines.join("\n"));
   return `https://wa.me/${number}?text=${text}`;
 }
 
-function buildEmailUrl(
-  email: string,
-  name: string,
-  emailAddr: string,
-  notes: string,
-  items: { name: string; qty: number; price: number }[],
-  total: number,
-): string {
-  const subject = encodeURIComponent("Permintaan Penawaran - Sublims");
-
-  const lines = [
-    "PERTANYAAN PRODUK - Sublims",
-    "",
-    `Dari: ${name}`,
-    `Email: ${emailAddr}`,
-    "",
-    "--- Detail Produk ---",
-  ];
-
-  items.forEach((item, i) => {
-    lines.push(
-      `${i + 1}. ${item.name} x${item.qty} = ${formatPrice(item.price * item.qty)}`,
-    );
-  });
-
-  lines.push("");
-  lines.push(`Total: ${formatPrice(total)}`);
-
-  if (notes.trim()) {
-    lines.push("");
-    lines.push(`Catatan: ${notes.trim()}`);
-  }
-
-  const body = encodeURIComponent(lines.join("\n"));
-  return `mailto:${email}?subject=${subject}&body=${body}`;
-}
-
 export default function QuoteForm({ open, onClose }: QuoteFormProps) {
-  const { items, totalPrice, clearCart } = useCart();
+  const { items, clearCart } = useCart();
   const [method, setMethod] = useState<DeliveryMethod>("whatsapp");
+  const [inquiryType, setInquiryType] = useState<InquiryType>("penawaran");
   const [name, setName] = useState("");
+  const [company, setCompany] = useState("");
   const [contact, setContact] = useState("");
+  const [email, setEmail] = useState("");
   const [notes, setNotes] = useState("");
+
+  const router = useRouter();
+  const params = useParams();
+  const locale = params?.locale ?? "id";
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState<{ type: "success" | "error"; message: string } | null>(null);
 
   if (!open) return null;
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
 
     const productItems = items.map((item) => ({
-      name: item.product.name_id,
+      name: item.product.nama_produk,
+      code: item.product.kode_produk,
       qty: item.quantity,
-      price: item.product.price,
     }));
 
-    let url: string;
     if (method === "whatsapp") {
-      url = buildWhatsAppUrl(WA_NUMBER, name, contact, notes, productItems, totalPrice);
-    } else {
-      url = buildEmailUrl(EMAIL_ADDRESS, name, contact, notes, productItems, totalPrice);
+      const url = buildWhatsAppUrl(WA_NUMBER, name, company, contact, email, inquiryType, notes, productItems);
+      window.open(url, "_blank");
+      clearCart();
+      onClose();
+      return;
     }
 
-    window.open(url, "_blank");
-    clearCart();
-    onClose();
+    const payload = {
+      inquiryType,
+      method,
+      name,
+      company,
+      contact,
+      email,
+      notes,
+      items: productItems,
+    };
+    setIsSubmitting(true);
+    setStatus(null);
+
+    try {
+      const res = await fetch("/api/quote", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const json = await res.json();
+
+      if (res.ok && json.success) {
+        const ref = json.id ? `?ref=${encodeURIComponent(json.id)}` : "";
+        setStatus({ type: "success", message: json.message || "Permintaan berhasil dikirim." });
+        clearCart();
+        // close modal first to remove backdrop, then navigate to localized thanks page
+        onClose();
+        router.push(`/${locale}/thanks${ref}`);
+        return;
+      } else {
+        setStatus({ type: "error", message: json?.message || "Gagal mengirim permintaan." });
+      }
+    } catch (err) {
+      setStatus({ type: "error", message: "Terjadi kesalahan jaringan. Silakan coba lagi." });
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -132,7 +152,7 @@ export default function QuoteForm({ open, onClose }: QuoteFormProps) {
         >
           <div className="flex items-center justify-between border-b border-neutral-100 px-6 py-4">
             <h2 className="text-lg font-semibold text-neutral-800">
-              Kirim Penawaran
+              Kirim Permintaan Penawaran
             </h2>
             <button
               onClick={onClose}
@@ -154,20 +174,11 @@ export default function QuoteForm({ open, onClose }: QuoteFormProps) {
                     className="flex items-center justify-between rounded-lg bg-neutral-50 px-4 py-2.5 text-sm"
                   >
                     <span className="text-neutral-700">
-                      {item.product.name_id}{" "}
+                      {item.product.kode_produk} — {item.product.nama_produk}{" "}
                       <span className="text-neutral-400">x{item.quantity}</span>
-                    </span>
-                    <span className="font-medium text-brand-600">
-                      {formatPrice(item.product.price * item.quantity)}
                     </span>
                   </div>
                 ))}
-                <div className="flex items-center justify-between border-t border-neutral-200 pt-2 text-sm font-semibold">
-                  <span className="text-neutral-800">Total</span>
-                  <span className="text-brand-600">
-                    {formatPrice(totalPrice)}
-                  </span>
-                </div>
               </div>
             </div>
 
@@ -203,6 +214,48 @@ export default function QuoteForm({ open, onClose }: QuoteFormProps) {
               </div>
             </div>
 
+            <div className="mb-6">
+              <h3 className="mb-3 text-sm font-medium text-neutral-700">
+                Ajukan
+              </h3>
+              <div className="flex gap-3">
+                <button
+                  type="button"
+                  onClick={() => setInquiryType("penawaran")}
+                  className={`flex flex-1 items-center justify-center gap-2 rounded-lg border px-4 py-3 text-sm font-medium transition-all duration-200 ${
+                    inquiryType === "penawaran"
+                      ? "border-brand-200 bg-brand-50 text-brand-600"
+                      : "border-neutral-200 text-neutral-500 hover:border-neutral-300"
+                  }`}
+                >
+                  <FileText className="h-5 w-5" />
+                  Penawaran Harga
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setInquiryType("pertanyaan")}
+                  className={`flex flex-1 items-center justify-center gap-2 rounded-lg border px-4 py-3 text-sm font-medium transition-all duration-200 ${
+                    inquiryType === "pertanyaan"
+                      ? "border-brand-200 bg-brand-50 text-brand-600"
+                      : "border-neutral-200 text-neutral-500 hover:border-neutral-300"
+                  }`}
+                >
+                  <HelpCircle className="h-5 w-5" />
+                  Pertanyaan Produk
+                </button>
+              </div>
+            </div>
+
+            {status && (
+              <div
+                className={`mb-4 rounded-md px-4 py-2 text-sm ${
+                  status.type === "success" ? "bg-green-50 text-green-800" : "bg-red-50 text-red-800"
+                }`}
+              >
+                {status.message}
+              </div>
+            )}
+
             <form onSubmit={handleSubmit} className="space-y-4">
               <Input
                 label="Nama Lengkap"
@@ -212,42 +265,51 @@ export default function QuoteForm({ open, onClose }: QuoteFormProps) {
                 required
               />
 
-              {method === "whatsapp" ? (
-                <Input
-                  label="No. WhatsApp"
-                  type="tel"
-                  placeholder="0812xxxxxxxx"
-                  value={contact}
-                  onChange={(e) => setContact(e.target.value)}
-                  required
-                />
-              ) : (
-                <Input
-                  label="Alamat Email"
-                  type="email"
-                  placeholder="email@anda.com"
-                  value={contact}
-                  onChange={(e) => setContact(e.target.value)}
-                  required
-                />
-              )}
+              <Input
+                label="Nama Perusahaan"
+                placeholder="Masukkan nama perusahaan"
+                value={company}
+                onChange={(e) => setCompany(e.target.value)}
+                required
+              />
+
+              <Input
+                label="Phone Number"
+                type="tel"
+                placeholder="0812xxxxxxxx"
+                value={contact}
+                onChange={(e) => setContact(e.target.value)}
+                required
+              />
+
+              <Input
+                label="Alamat Email"
+                type="email"
+                placeholder="Masukkan alamat email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
 
               <div className="flex flex-col gap-1.5">
                 <label className="text-sm font-medium text-neutral-700">
-                  Catatan Tambahan
+                  {inquiryType === "penawaran" ? "Catatan Tambahan" : "Sampaikan Pertanyaan Anda"}
                 </label>
                 <textarea
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}
-                  placeholder="Contoh: Butuh dalam 2 minggu, ukuran XXL"
+                  placeholder={
+                    inquiryType === "penawaran"
+                      ? "Contoh: Butuh dalam 2 minggu, ukuran XXL"
+                      : "Tuliskan pertanyaan Anda di sini..."
+                  }
                   rows={3}
                   className="rounded-lg border border-neutral-200 px-4 py-3 text-sm text-neutral-800 placeholder-neutral-400 outline-none transition-all duration-200 ease-out focus:ring-2 focus:ring-brand-200"
                 />
               </div>
 
-              <Button type="submit" className="w-full" size="lg">
+              <Button type="submit" className="w-full" size="lg" disabled={isSubmitting}>
                 <Send className="h-4 w-4" />
-                Kirim Penawaran
+                {isSubmitting ? "Mengirim..." : "Kirim Permintaan"}
               </Button>
             </form>
           </div>

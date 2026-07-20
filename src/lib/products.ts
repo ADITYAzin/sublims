@@ -1,18 +1,26 @@
 export type Product = {
   id: number;
-  name_id: string;
-  name_en: string;
-  description_id: string;
-  description_en: string;
-  price: number;
-  image: string;
+  kode_produk: string;
+  nama_produk: string;
+  brand: string;
+  ukuran: string;
+  panjang_cm: number;
+  lebar_cm: number;
+  tinggi_cm: number;
+  kekuatan_statis_kg: number;
+  kekuatan_dinamis_kg: number;
+  kekuatan_racking_kg: number;
+  akses_forklift: string;
+  akses_hand_pallet: string;
+  akses_stacker: string;
+  warna: string;
+  berat_kg: number;
+  material: string;
+  image_fetch_url: string;
+  image_dir_path: string;
+  tautan_img?: string;
 };
 
-export function formatPrice(price: number): string {
-  return new Intl.NumberFormat("id-ID", {
-    style: "currency",
-    currency: "IDR",
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0,
-  }).format(price);
-}
+export type RawProductRow = Product & {
+  email_pic: string;
+};
