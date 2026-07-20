@@ -23,7 +23,7 @@ export default async function HomePage({ params }: Props) {
         primaryCta={t("hero.primary_cta")}
         secondaryCta={t("hero.secondary_cta")}
         catalogUrl={`/${locale}/catalog`}
-        whatsappUrl={`${whatsappBase}?text=Halo%2C%20saya%20tertarik%20dengan%20produk%20pallet%20dan%20keranjang%20plastik%20Sublims.%20Mohon%20info%20lebih%20lanjut.`}
+        whatsappUrl={`${whatsappBase}?text=Halo%2C%20saya%20tertarik%20dengan%20produk%20pallet%20SUBLiMS.%20Mohon%20info%20lebih%20lanjut.`}
       />
 
       {/* <CategoryGrid
@@ -70,7 +70,7 @@ export default async function HomePage({ params }: Props) {
       {/* <CTABanner
         text={t("cta.text")}
         buttonLabel={t("cta.button")}
-        whatsappUrl={`${whatsappBase}?text=Halo%2C%20saya%20ingin%20konsultasi%20kebutuhan%20pallet%20dan%20keranjang%20plastik%20untuk%20skala%20besar.`}
+        whatsappUrl={`${whatsappBase}?text=Halo%2C%20saya%20ingin%20konsultasi%20kebutuhan%20pallet%20untuk%20skala%20besar.`}
       /> */}
     </main>
   );

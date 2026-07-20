@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
-import { Languages } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState, useCallback } from "react";
 
 const locales = [
@@ -45,15 +45,15 @@ export default function Navbar() {
       <nav className="mx-auto flex max-w-container items-center justify-between px-4 py-4 md:px-6 lg:px-8">
         <Link
           href={`/${locale}`}
-          className="text-xl font-bold text-brand-200 transition-colors hover:text-brand-300"
+          className="flex h-9 w-28 shrink-0 items-center"
         >
           <Image
             src="/images/SS.png"
-            alt="Sublims"
-            width={80}
-            height={28}
+            alt="SUBLiMS"
+            width={112}
+            height={36}
             priority
-            className="h-7 w-auto"
+            className="h-9 w-28 object-contain"
           />
         </Link>
 
@@ -93,10 +93,10 @@ export default function Navbar() {
         <div className="flex items-center gap-2 md:hidden">
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="flex items-center gap-1"
+            className="flex items-center justify-center rounded-lg p-1.5 text-neutral-600 hover:bg-neutral-100"
             aria-label="Toggle menu"
           >
-            <Languages className="h-5 w-5 text-neutral-600" />
+            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
       </nav>

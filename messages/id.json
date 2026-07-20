@@ -8,16 +8,16 @@
     "home":  {
                  "hero":  {
                               "headline":  "Selamat Datang di SUBLIMS",
-                              "subheadline":  "Kami menyediakan Pallet \u0026 Keranjang Plastik Standar Industri untuk Kebutuhan Logistik.",
+                              "subheadline":  "Kami menyediakan Pallet Standar Industri untuk Kebutuhan Logistik.",
                               "primary_cta":  "Jelajahi Katalog",
-                              "secondary_cta":  "Konsultasi Ketersediaan Stok"
+                              "secondary_cta":  "Hubungi Kami"
                           },
                  "categories":  {
                                     "heading":  "Kategori Produk Siap Salur",
                                     "pallet_title":  "Pallet Plastik",
                                     "pallet_desc":  "Pallet plastik berkualitas tinggi untuk kebutuhan pergudangan dan logistik Anda. Tersedia dalam berbagai ukuran dan kapasitas beban.",
-                                    "crate_title":  "Keranjang / Crate Plastik",
-                                    "crate_desc":  "Keranjang plastik serbaguna untuk penyimpanan, sortasi, dan distribusi barang di berbagai sektor industri.",
+                                    "crate_title":  "Crate Plastik",
+                                    "crate_desc":  "Penyimpanan, sortasi, dan distribusi barang di berbagai sektor industri.",
                                     "view_all":  "Lihat Semua"
                                 },
                  "values":  {
@@ -46,7 +46,7 @@
                   "vision_title":  "Visi",
                   "vision":  "Menjadi distributor kemasan plastik terdepan di Indonesia yang inovatif, terpercaya, dan memberikan solusi terbaik bagi setiap kebutuhan distribusi dan logistik.",
                   "mission_title":  "Misi",
-                  "mission_1":  "Menyediakan produk pallet dan keranjang plastik berkualitas tinggi yang memenuhi standar industri.",
+                  "mission_1":  "Menyediakan produk pallet berkualitas tinggi yang memenuhi standar industri.",
                   "mission_2":  "Memberikan pelayanan yang unggul dan responsif demi kepuasan pelanggan.",
                   "mission_3":  "Membangun kemitraan jangka panjang berbasis kepercayaan dan integritas.",
                   "mission_4":  "Terus berinovasi dalam memberikan solusi kemasan yang efisien dan berkelanjutan.",

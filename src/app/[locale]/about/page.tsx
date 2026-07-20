@@ -1,7 +1,6 @@
-import { Building2, CheckCircle2, Target, Quote } from "lucide-react";
+import { CheckCircle2, Quote } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
-import CTABanner from "@/components/sections/CTABanner";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -16,11 +15,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function AboutPage() {
   const t = await getTranslations("about");
-  const tHome = await getTranslations("home");
 
-  const whatsappNumber = "6285113668629";
-  const whatsappBase = `https://wa.me/${whatsappNumber}`;
-  const facts = [t("founded"), t("location"), t("focus")];
   const missions = [t("mission_1"), t("mission_2"), t("mission_3"), t("mission_4")];
 
   return (
@@ -69,11 +64,6 @@ export default async function AboutPage() {
         </div>
       </section>
 
-      <CTABanner
-        text={tHome("cta.text")}
-        buttonLabel={tHome("cta.button")}
-        whatsappUrl={`${whatsappBase}?text=Halo%2C%20saya%20ingin%20konsultasi%20kebutuhan%20pallet%20dan%20keranjang%20plastik%20untuk%20skala%20besar.`}
-      />
     </main>
   );
 }

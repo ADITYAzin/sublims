@@ -5,7 +5,7 @@ function getEmailConfig() {
   return {
     apiKey: process.env.RESEND_API_KEY || "",
     to: process.env.EMAIL_TO || "sales@sublims.com",
-    from: process.env.EMAIL_FROM || "Sublims <onboarding@resend.dev>",
+    from: process.env.EMAIL_FROM || "SUBLiMS <onboarding@resend.dev>",
   };
 }
 
@@ -34,8 +34,8 @@ export async function POST(request: Request) {
     const inquiryType = payload.inquiryType === "pertanyaan" ? "pertanyaan" : "penawaran";
     const subject =
       inquiryType === "penawaran"
-        ? "Permintaan Penawaran Harga - Sublims"
-        : "Pertanyaan Produk - Sublims";
+        ? "Permintaan Penawaran Harga - SUBLiMS"
+        : "Pertanyaan Produk - SUBLiMS";
 
     const html = `
       <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #222;">
@@ -52,7 +52,7 @@ export async function POST(request: Request) {
     `;
 
     const text = [
-      inquiryType === "penawaran" ? "PENAWARAN HARGA - Sublims" : "PERTANYAAN PRODUK - Sublims",
+      inquiryType === "penawaran" ? "PENAWARAN HARGA - SUBLiMS" : "PERTANYAAN PRODUK - SUBLiMS",
       "",
       `Nama: ${payload.name || "-"}`,
       `Perusahaan: ${payload.company || "-"}`,

@@ -3,8 +3,8 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "Sublims",
-    template: "%s | Sublims",
+    default: "SUBLiMS",
+    template: "%s | SUBLiMS",
   },
   description: "Company Profile",
 };

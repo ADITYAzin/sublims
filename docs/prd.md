@@ -26,7 +26,7 @@
 
 #### Section 1: Hero Section (Solusi Utama)
 
-* **Headline:** Penyedia Pallet & Keranjang Plastik Standar Industri untuk Efisiensi Logistik.
+* **Headline:** Penyedia Pallet Standar Industri untuk Efisiensi Logistik.
 * **Sub-headline:** Menjamin ketersediaan stok siap kirim untuk kebutuhan pergudangan, manufaktur, dan rantai pasok skala besar.
 * **Tombol Aksi:**
 * Utama: "Jelajahi Katalog" (Scroll ke area produk/halaman katalog).
@@ -67,7 +67,7 @@
 
 * **Visi:** Menjadi distributor kemasan plastik terdepan di Indonesia yang inovatif, terpercaya, dan memberikan solusi terbaik bagi setiap kebutuhan distribusi dan logistik.
 * **Misi:**
-1. Menyediakan produk pallet dan keranjang plastik berkualitas tinggi yang memenuhi standar industri.
+1. Menyediakan produk pallet berkualitas tinggi yang memenuhi standar industri.
 2. Memberikan pelayanan yang unggul dan responsif demi kepuasan pelanggan.
 3. Membangun kemitraan jangka panjang berbasis kepercayaan dan integritas.
 4. Terus berinovasi dalam memberikan solusi kemasan yang efisien dan berkelanjutan.
