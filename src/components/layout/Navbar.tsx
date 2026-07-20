@@ -2,15 +2,10 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { Menu, X } from "lucide-react";
-import { useState, useCallback } from "react";
-
-const locales = [
-  { code: "id", label: "ID" },
-  { code: "en", label: "EN" },
-];
+import { useState } from "react";
 
 function useLocale() {
   const pathname = usePathname();
@@ -20,7 +15,6 @@ function useLocale() {
 export default function Navbar() {
   const t = useTranslations("nav");
   const pathname = usePathname();
-  const router = useRouter();
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const locale = useLocale();
@@ -31,14 +25,6 @@ export default function Navbar() {
     { href: `/${locale}/catalog`, label: t("catalog") },
     { href: `/${locale}/contact`, label: t("contact") },
   ];
-
-  const switchLocale = useCallback(
-    (code: string) => {
-      const newPath = pathname.replace(`/${locale}`, `/${code}`);
-      router.replace(newPath);
-    },
-    [pathname, locale, router],
-  );
 
   return (
     <header className="sticky top-0 z-50 border-b border-neutral-100 bg-white/80 backdrop-blur-md">
@@ -72,22 +58,6 @@ export default function Navbar() {
               </Link>
             );
           })}
-
-          <div className="ml-4 flex items-center gap-1 border-l border-neutral-200 pl-4">
-            {locales.map((l) => (
-              <button
-                key={l.code}
-                onClick={() => switchLocale(l.code)}
-                className={`rounded-lg px-2 py-1 text-xs font-medium transition-colors ${
-                  locale === l.code
-                    ? "bg-brand-200 text-white"
-                    : "text-neutral-500 hover:bg-neutral-100"
-                }`}
-              >
-                {l.label}
-              </button>
-            ))}
-          </div>
         </div>
 
         <div className="flex items-center gap-2 md:hidden">
@@ -121,21 +91,6 @@ export default function Navbar() {
                 </Link>
               );
             })}
-            <div className="flex gap-1 border-t border-neutral-100 pt-3">
-              {locales.map((l) => (
-                <button
-                  key={l.code}
-                  onClick={() => switchLocale(l.code)}
-                  className={`rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${
-                    locale === l.code
-                      ? "bg-brand-200 text-white"
-                      : "text-neutral-500 hover:bg-neutral-100"
-                  }`}
-                >
-                  {l.label}
-                </button>
-              ))}
-            </div>
           </div>
         </div>
       )}
