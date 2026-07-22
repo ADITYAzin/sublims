@@ -47,7 +47,7 @@ export default function HeroSection({
           <p className="mx-auto mt-6 max-w-4xl text-lg font-medium leading-relaxed text-white md:text-xl">
             {subheadline}
           </p>
-          <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center" style={{ gap: "162px" }}>
+          <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center sm:gap-6">
             <Link href={catalogUrl}>
               <Button size="lg" className="w-[260px] rounded-xl bg-brand-500 shadow-[0_12px_28px_rgba(74,125,134,0.22)] hover:bg-brand-600">
                 {primaryCta}
