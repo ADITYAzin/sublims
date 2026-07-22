@@ -47,15 +47,15 @@ export default function HeroSection({
           <p className="mx-auto mt-6 max-w-4xl text-lg font-medium leading-relaxed text-white md:text-xl">
             {subheadline}
           </p>
-          <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center" style={{ gap: "162px" }}>
             <Link href={catalogUrl}>
-              <Button size="lg" className="rounded-xl bg-brand-500 shadow-[0_12px_28px_rgba(74,125,134,0.22)] hover:bg-brand-600">
+              <Button size="lg" className="w-[260px] rounded-xl bg-brand-500 shadow-[0_12px_28px_rgba(74,125,134,0.22)] hover:bg-brand-600">
                 {primaryCta}
                 <ArrowRight className="h-5 w-5" />
               </Button>
             </Link>
             <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-              <Button variant="outline" size="lg" className="rounded-xl border-brand-300 bg-white/70 text-brand-700 backdrop-blur-md hover:border-brand-400 hover:bg-brand-50">
+              <Button variant="outline" size="lg" className="w-[260px] rounded-xl border-brand-300 bg-white/70 text-brand-700 backdrop-blur-md hover:border-brand-400 hover:bg-brand-50">
                 <MessageCircle className="h-5 w-5" />
                 {secondaryCta}
               </Button>
