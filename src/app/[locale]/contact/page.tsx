@@ -1,6 +1,6 @@
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
 import { getTranslations } from "next-intl/server";
-import Image from "next/image";
+
 import type { Metadata } from "next";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -46,34 +46,21 @@ export default async function ContactPage() {
 
       <section className="py-16 md:py-24">
         <div className="mx-auto max-w-container px-4 md:px-6 lg:px-8">
-          <div className="grid gap-8 md:grid-cols-[0.9fr_1.1fr]">
-            <div className="space-y-5">
-              <div className="rounded-2xl border border-neutral-100/80 bg-white p-6 shadow-[0_4px_8px_rgba(36,73,80,0.04),0_12px_28px_rgba(36,73,80,0.06)]">
-                <div className="grid gap-4">
-                  {details.map(({ label, value, icon: Icon }) => (
-                    <div key={label} className="flex gap-4 rounded-xl bg-neutral-50 p-4">
-                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand-100 text-brand-700">
-                        <Icon className="h-5 w-5" />
-                      </div>
-                      <div>
-                        <p className="text-sm font-semibold uppercase tracking-[0.12em] text-neutral-500">{label}</p>
-                        <p className="mt-1 font-semibold leading-relaxed text-neutral-900">{value}</p>
-                      </div>
+          <div className="mx-auto max-w-2xl space-y-5">
+            <div className="rounded-2xl border border-neutral-100/80 bg-white p-6 shadow-[0_4px_8px_rgba(36,73,80,0.04),0_12px_28px_rgba(36,73,80,0.06)]">
+              <div className="grid gap-4">
+                {details.map(({ label, value, icon: Icon }) => (
+                  <div key={label} className="flex gap-4 rounded-xl bg-neutral-50 p-4">
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand-100 text-brand-700">
+                      <Icon className="h-5 w-5" />
                     </div>
-                  ))}
-                </div>
+                    <div>
+                      <p className="text-sm font-semibold uppercase tracking-[0.12em] text-neutral-500">{label}</p>
+                      <p className="mt-1 font-semibold leading-relaxed text-neutral-900">{value}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
-            </div>
-
-            <div className="relative aspect-[8/5] overflow-hidden rounded-2xl border border-neutral-100/80 shadow-[0_4px_8px_rgba(36,73,80,0.04),0_18px_44px_rgba(36,73,80,0.1)]">
-              <Image
-                src="/images/forklift-pallet.jpg"
-                alt="Forklift memindahkan pallet di gudang"
-                fill
-                sizes="(max-width: 768px) 100vw, 55vw"
-                className="object-cover"
-                priority
-              />
             </div>
           </div>
         </div>

@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { CartProvider } from "@/context/CartContext";
+import HideFooterOnHome from "@/components/layout/HideFooterOnHome";
 
 const locales = ["id", "en"];
 
@@ -27,7 +28,9 @@ export default async function LocaleLayout({
       <CartProvider>
         <Navbar />
         <div className="flex flex-1 flex-col">{children}</div>
-        <Footer />
+        <HideFooterOnHome>
+          <Footer />
+        </HideFooterOnHome>
       </CartProvider>
     </NextIntlClientProvider>
   );

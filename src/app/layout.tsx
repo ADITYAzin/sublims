@@ -7,6 +7,9 @@ export const metadata: Metadata = {
     template: "%s | SUBLiMS",
   },
   description: "Company Profile",
+  icons: {
+    icon: "/images/SS.png",
+  },
 };
 
 export default function RootLayout({
