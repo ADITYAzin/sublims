@@ -55,7 +55,7 @@ export default function HeroSection({
               </Button>
             </Link>
             <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-              <Button variant="outline" size="lg" className="w-[260px] rounded-xl border-brand-300 bg-white/70 text-brand-700 backdrop-blur-md hover:border-brand-400 hover:bg-brand-50">
+              <Button variant="outline" size="lg" className="w-[260px] rounded-xl border-brand-300 bg-white text-brand-700 hover:border-brand-400 hover:bg-brand-50">
                 <MessageCircle className="h-5 w-5" />
                 {secondaryCta}
               </Button>

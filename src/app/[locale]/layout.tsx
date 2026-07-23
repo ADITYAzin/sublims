@@ -6,7 +6,7 @@ import Footer from "@/components/layout/Footer";
 import { CartProvider } from "@/context/CartContext";
 import HideFooterOnHome from "@/components/layout/HideFooterOnHome";
 
-const locales = ["id", "en"];
+const locales = ["id"];
 
 export default async function LocaleLayout({
   children,

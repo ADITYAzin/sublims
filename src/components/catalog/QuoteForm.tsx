@@ -288,11 +288,13 @@ export default function QuoteForm({ open, onClose }: QuoteFormProps) {
                 placeholder="Masukkan alamat email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                required
               />
 
               <div className="flex flex-col gap-1.5">
                 <label className="text-sm font-medium text-neutral-700">
                   {inquiryType === "penawaran" ? "Catatan Tambahan" : "Sampaikan Pertanyaan Anda"}
+                  <span className="ml-0.5 text-red-500">*</span>
                 </label>
                 <textarea
                   value={notes}
@@ -303,6 +305,7 @@ export default function QuoteForm({ open, onClose }: QuoteFormProps) {
                       : "Tuliskan pertanyaan Anda di sini..."
                   }
                   rows={3}
+                  required
                   className="rounded-lg border border-neutral-200 px-4 py-3 text-sm text-neutral-800 placeholder-neutral-400 outline-none transition-all duration-200 ease-out focus:ring-2 focus:ring-brand-200"
                 />
               </div>
